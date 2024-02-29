@@ -9,6 +9,9 @@ output:
 ---
 
 ## Lets Do This
+*Research Question*\
+  "How has Blood Lead Level(BLL) changed over time and what areas have higher BLLs?"
+      
 
 ```{r setup echo=FALSE}
 knitr::opts_chunk$set(message = FALSE)
@@ -22,7 +25,7 @@ Children_Blood_Lead <- download_file_as_data_frame(owner_id = "city-of-ny", data
 ```
 
 ## Data Tidying 
-```{r}
+```{r echo=FALSE}
 Filtered_Children_Blood_Lead <- Children_Blood_Lead %>%
   select(-ends_with("_NOTES")) 
 
