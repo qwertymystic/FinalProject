@@ -11,6 +11,7 @@ output:
 ## Lets Do This
 
 ```{r setup echo=FALSE}
+knitr::opts_chunk$set(message = FALSE)
 library(tidyverse)
 library(ggrepel)
 library(janitor)
@@ -19,6 +20,11 @@ library(janitor)
 ### Data Viz Area 
 
 ```{r fig.width=6, fig.height=6, fig.align='center'}
+
+```
+
+
+```{r}
 
 ```
 
