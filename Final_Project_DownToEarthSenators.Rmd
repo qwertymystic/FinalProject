@@ -1,0 +1,24 @@
+---
+title: "Final Project"
+author: "Adam Fucich, Asher Andrus, Sophia Baitzel, Anita Avila"
+date: "02-29-24"
+output:
+  prettydoc::html_pretty:
+    theme: hpster
+    highlight: github
+---
+
+## Lets Do This
+
+```{r setup echo=FALSE}
+library(tidyverse)
+library(ggrepel)
+library(janitor)
+```
+
+### Data Viz Area 
+
+```{r fig.width=6, fig.height=6, fig.align='center'}
+
+```
+
