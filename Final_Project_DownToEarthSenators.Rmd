@@ -13,7 +13,7 @@ output:
   "How has Blood Lead Level(BLL) changed over time and what areas have higher BLLs?"
       
 
-```{r setup echo=FALSE}
+```{r setup, echo=FALSE}
 knitr::opts_chunk$set(message = FALSE)
 library(tidyverse)
 library(ggrepel)
