@@ -21,6 +21,37 @@ library(data.world)
 Children_Blood_Lead <- download_file_as_data_frame(owner_id = "city-of-ny", dataset_id = "tnry-kwh5", file_name = "children-under-6-yrs-with-elevated-blood-lead-levels-bll-1.csv") 
 ```
 
+## Data Tidying 
+```{r}
+Filtered_Children_Blood_Lead <- Children_Blood_Lead %>%
+  select(-ends_with("_NOTES")) 
+
+Simple_Children_Blood_Lead <- Filtered_Children_Blood_Lead %>%
+  rename(BLL_5 = `Children under 6 years with elevated blood lead levels (BLL) Number BLL >=5 µg/dL`) %>%
+  rename(BLL_10 = `Children under 6 years with elevated blood lead levels (BLL) Number BLL>=10 µg/dL`) %>%
+  rename(BLL_15 = `Children under 6 years with elevated blood lead levels (BLL) Number BLL>=15 µg/dL`) %>%
+  rename(Total_Test = `Children under 6 years with elevated blood lead levels (BLL) Number Tested`) %>%
+  rename(BLL_5_ratio = `Children under 6 years with elevated blood lead levels (BLL) Rate  BLL>=5 µg/dL per 1,000 tested`) %>%
+  rename(BLL_10_ratio = `Children under 6 years with elevated blood lead levels (BLL) Rate BLL>=10 µg/dL per 1,000 tested`) %>%
+  rename(BLL_15_ratio = `Children under 6 years with elevated blood lead levels (BLL) Rate BLL>=15 µg/dL per 1,000 tested`)
+
+New_Children_Lead_Poision <- Simple_Children_Blood_Lead %>%
+  transform(BLL_5 = as.numeric(BLL_5)) %>%
+  transform(BLL_10 = as.numeric(BLL_10)) %>%
+  transform(BLL_15 = as.numeric(BLL_15)) %>%
+  transform(geo_area_id = as.numeric(geo_area_id)) %>%
+  transform(borough_id = as.numeric(borough_id)) %>%
+  transform(time_period = as.numeric(time_period)) %>%
+  transform(Total_Test = as.numeric(Total_Test)) %>%
+  transform(BLL_5_ratio = as.numeric(BLL_5_ratio)) %>%
+  transform(BLL_10_ratio = as.numeric(BLL_10_ratio)) %>%
+  transform(BLL_15_ratio = as.numeric(BLL_15_ratio))
+   
+  
+New_Blood_Lead_Children <- New_Children_Lead_Poision %>%
+  mutate(Total_Lead_Poisoned = (BLL_5 + BLL_10 + BLL_15)) %>%
+  mutate(Total_Not_Lead_Poisioned = (Total_Test) - (BLL_5 + BLL_10 + BLL_15))
+```
 ### Data Viz Area 
 
 ```{r fig.width=6, fig.height=6, fig.align='center'}
