@@ -1,7 +1,0 @@
-#Setupcode
-install.packages(tidyverse)
-library(tidyverse)
-install.packages(ggrepel)
-library(ggrepel)
-install.packages(janitor)
-library(janitor)
