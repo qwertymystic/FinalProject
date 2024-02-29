@@ -15,6 +15,9 @@ knitr::opts_chunk$set(message = FALSE)
 library(tidyverse)
 library(ggrepel)
 library(janitor)
+install.packages("devtools")
+devtools::install_github("datadotworld/data.world-r", build_vignettes = TRUE)
+library(data.world)
 ```
 
 ### Data Viz Area 
