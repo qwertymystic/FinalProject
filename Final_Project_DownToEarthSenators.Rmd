@@ -13,12 +13,12 @@ output:
   "How has Blood Lead Level(BLL) changed over time and what areas have higher BLLs?"
       
 
-```{r setup, echo=FALSE}
+```{r setup, echo=FALSE, include=FALSE}
 knitr::opts_chunk$set(message = FALSE)
 library(tidyverse)
 library(ggrepel)
 library(janitor)
-install.packages("devtools")
+#install.packages("devtools")
 devtools::install_github("datadotworld/data.world-r", build_vignettes = TRUE)
 library(data.world)
 Children_Blood_Lead <- download_file_as_data_frame(owner_id = "city-of-ny", dataset_id = "tnry-kwh5", file_name = "children-under-6-yrs-with-elevated-blood-lead-levels-bll-1.csv") 
@@ -55,6 +55,7 @@ New_Blood_Lead_Children <- New_Children_Lead_Poision %>%
   mutate(Total_Lead_Poisoned = (BLL_5 + BLL_10 + BLL_15)) %>%
   mutate(Total_Not_Lead_Poisioned = (Total_Test) - (BLL_5 + BLL_10 + BLL_15))
 ```
+
 ### Data Viz Area 
 
 ```{r fig.width=6, fig.height=6, fig.align='center'}
