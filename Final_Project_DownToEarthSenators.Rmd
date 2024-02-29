@@ -25,7 +25,7 @@ Children_Blood_Lead <- download_file_as_data_frame(owner_id = "city-of-ny", data
 ```
 
 ## Data Tidying 
-```{r echo=FALSE}
+```{r echo=FALSE, include=FALSE}
 Filtered_Children_Blood_Lead <- Children_Blood_Lead %>%
   select(-ends_with("_NOTES")) 
 
