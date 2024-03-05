@@ -1,5 +1,5 @@
 ---
-title: "Final Project"
+title: "Final Project - Report"
 author: "Adam Fucich, Asher Andrus, Sophia Baitzel, Anita Avila"
 date: "02-29-24"
 output:
