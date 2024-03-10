@@ -59,7 +59,22 @@ New_Blood_Lead_Children <- New_Children_Lead_Poision %>%
 ### Data Viz Area 
 
 ```{r fig.width=6, fig.height=6, fig.align='center'}
+view(New_Blood_Lead_Children)
 
+
+## Line graph comparing total children testing positive for BBL by borough. Needs title?
+New_Blood_Lead_Children %>%
+  filter(geo_type == "Borough") %>%
+  group_by("geo_area_name") %>%
+  ggplot() +
+  geom_line(aes(x = time_period, y = (Total_Lead_Poisoned / 1000), color = geo_area_name), size = 1.5) +
+  scale_x_continuous(name = "Year", breaks = seq(2005, 2016, 1)) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_y_continuous(name = "Total Cases (thousands)", breaks = seq(0, 17.5, 2.5)) + 
+  guides( color = guide_legend(title = "NYC Borough"))
+
+# Map of the 5 boroughs we could use: https://www.loumovesyou.com/wp-content/uploads/2022/11/FiveBoroughs-01.jpg
+  
 ```
 
 
