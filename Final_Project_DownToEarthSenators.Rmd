@@ -46,7 +46,7 @@ New_Children_Lead_Poision <- Simple_Children_Blood_Lead %>%
   transform(BLL_15 = as.numeric(BLL_15)) %>%
   transform(geo_area_id = as.numeric(geo_area_id)) %>%
   transform(borough_id = as.numeric(borough_id)) %>%
-  transform(time_period = as.numeric(time_period)) %>%
+  transform(Year = as.numeric(Year)) %>%
   transform(Total_Test = as.numeric(Total_Test)) %>%
   transform(BLL_5_ratio = as.numeric(BLL_5_ratio)) %>%
   transform(BLL_10_ratio = as.numeric(BLL_10_ratio)) %>%
@@ -68,7 +68,7 @@ New_Blood_Lead_Children %>%
   filter(geo_type == "Borough") %>%
   group_by("geo_area_name") %>%
   ggplot() +
-  geom_line(aes(x = time_period, y = (Total_Lead_Poisoned / 1000), color = geo_area_name), linewidth = 1.5) +
+  geom_line(aes(x = Year, y = (Total_Lead_Poisoned / 1000), color = geo_area_name), linewidth = 1.5) +
   scale_x_continuous(name = "Year", breaks = seq(2005, 2016, 1)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   scale_y_continuous(name = "Total Cases (thousands)", breaks = seq(0, 17.5, 2.5)) + 
@@ -83,7 +83,7 @@ New_Blood_Lead_Children %>%
   filter(geo_type == "Neighborhood (UHF 42)", borough_id == "2") %>%
   group_by(geo_area_name) %>%
   ggplot() +
-  geom_line(aes(x = time_period, y = Total_Lead_Poisoned, color = geo_area_name))
+  geom_line(aes(x = Year, y = Total_Lead_Poisoned, color = geo_area_name))
   
 ```
 
