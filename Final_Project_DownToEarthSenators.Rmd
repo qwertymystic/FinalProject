@@ -21,7 +21,8 @@ library(janitor)
 #install.packages("devtools")
 devtools::install_github("datadotworld/data.world-r", build_vignettes = TRUE)
 library(data.world)
-Children_Blood_Lead <- download_file_as_data_frame(owner_id = "city-of-ny", dataset_id = "tnry-kwh5", file_name = "children-under-6-yrs-with-elevated-blood-lead-levels-bll-1.csv") 
+Children_Blood_Lead <- download_file_as_data_frame(owner_id = "city-of-ny", dataset_id = "tnry-kwh5", file_name = "children-under-6-yrs-with-elevated-blood-lead-levels-bll-1.csv")
+view(Simple_Children_Blood_Lead)
 ```
 
 ## Data Tidying 
@@ -36,7 +37,8 @@ Simple_Children_Blood_Lead <- Filtered_Children_Blood_Lead %>%
   rename(Total_Test = `Children under 6 years with elevated blood lead levels (BLL) Number Tested`) %>%
   rename(BLL_5_ratio = `Children under 6 years with elevated blood lead levels (BLL) Rate  BLL>=5 µg/dL per 1,000 tested`) %>%
   rename(BLL_10_ratio = `Children under 6 years with elevated blood lead levels (BLL) Rate BLL>=10 µg/dL per 1,000 tested`) %>%
-  rename(BLL_15_ratio = `Children under 6 years with elevated blood lead levels (BLL) Rate BLL>=15 µg/dL per 1,000 tested`)
+  rename(BLL_15_ratio = `Children under 6 years with elevated blood lead levels (BLL) Rate BLL>=15 µg/dL per 1,000 tested`) %>%
+  rename(Year = `time_period`)
 
 New_Children_Lead_Poision <- Simple_Children_Blood_Lead %>%
   transform(BLL_5 = as.numeric(BLL_5)) %>%
