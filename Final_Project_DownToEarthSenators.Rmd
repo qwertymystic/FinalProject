@@ -10,10 +10,15 @@ output:
 
 ## Blood Lead Levels in NYC Children
 *Research Question*\
-  "How has Blood Lead Level(BLL) changed over time and what areas have higher BLLs?"
-      
+  "How has Blood Lead Level(BLL) changed over time and what areas have higher BLL's?"
 
-```{r setup, echo=FALSE, include=FALSE}
+## Background\
+
+## Methods\
+Our dataset provides information about the number of children in New York City that tested with elevated levels of lead in their blood by location and year. 
+Every year, all children at the ages of 1 and 2 years old, living in New York City are required to get their blood lead levels tested. If they are at risk for elevated levels, they are tested up until the age of 6. The data is provided to the public by the Department of Health and Mental Hygiene, through the data.cityofnewyork.us website. The data is sorted by the year and the location, which is broken down into the area name, area ID, geography type (borough, citywide, or neighborhood), and the borough ID. The variables are broken up into columns displaying the number of children that tested within certain blood lead level ranges, measured in micrograms per deciliter (µg/dL).
+
+```{r, echo=FALSE, include=FALSE}
 knitr::opts_chunk$set(message = FALSE)
 library(tidyverse)
 library(ggrepel)
@@ -22,11 +27,10 @@ library(janitor)
 devtools::install_github("datadotworld/data.world-r", build_vignettes = TRUE)
 library(data.world)
 Children_Blood_Lead <- download_file_as_data_frame(owner_id = "city-of-ny", dataset_id = "tnry-kwh5", file_name = "children-under-6-yrs-with-elevated-blood-lead-levels-bll-1.csv")
-view(Simple_Children_Blood_Lead)
 ```
 
 ## Data Tidying 
-```{r, message =FALSE}
+```{r setup, message =FALSE}
 Filtered_Children_Blood_Lead <- Children_Blood_Lead %>%
   select(-ends_with("_NOTES")) 
 
