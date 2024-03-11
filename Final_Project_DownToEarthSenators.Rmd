@@ -8,7 +8,7 @@ output:
     highlight: github
 ---
 
-## Lets Do This
+## Blood Lead Levels in NYC Children
 *Research Question*\
   "How has Blood Lead Level(BLL) changed over time and what areas have higher BLLs?"
       
@@ -25,7 +25,7 @@ Children_Blood_Lead <- download_file_as_data_frame(owner_id = "city-of-ny", data
 ```
 
 ## Data Tidying 
-```{r echo=FALSE, include=FALSE}
+```{r, message =FALSE}
 Filtered_Children_Blood_Lead <- Children_Blood_Lead %>%
   select(-ends_with("_NOTES")) 
 
@@ -50,7 +50,6 @@ New_Children_Lead_Poision <- Simple_Children_Blood_Lead %>%
   transform(BLL_10_ratio = as.numeric(BLL_10_ratio)) %>%
   transform(BLL_15_ratio = as.numeric(BLL_15_ratio))
    
-  
 New_Blood_Lead_Children <- New_Children_Lead_Poision %>%
   mutate(Total_Lead_Poisoned = (BLL_5 + BLL_10 + BLL_15)) %>%
   mutate(Total_Not_Lead_Poisioned = (Total_Test) - (BLL_5 + BLL_10 + BLL_15))
