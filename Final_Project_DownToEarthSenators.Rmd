@@ -83,7 +83,7 @@ New_Blood_Lead_Children %>%
   group_by(geo_area_name) %>%
   ggplot() +
   geom_line(aes(x = time_period, y = Total_Lead_Poisoned, color = geo_area_name))
-  
+
 ```
 
 
