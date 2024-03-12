@@ -26,6 +26,7 @@ library(janitor)
 #install.packages("devtools")
 devtools::install_github("datadotworld/data.world-r", build_vignettes = TRUE)
 library(data.world)
+library(sf)
 Children_Blood_Lead <- download_file_as_data_frame(owner_id = "city-of-ny", dataset_id = "tnry-kwh5", file_name = "children-under-6-yrs-with-elevated-blood-lead-levels-bll-1.csv")
 ```
 
@@ -124,6 +125,6 @@ New_Blood_Lead_Children %>%
 
 
 ```{r}
-
+NYC_neighborhoods <- read_sf("geo_export_d7845c4f-51f3-4494-87c5-d8ae80c51bf9.shp")
 ```
 
