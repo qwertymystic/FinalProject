@@ -26,7 +26,8 @@ library(janitor)
 #install.packages("devtools")
 devtools::install_github("datadotworld/data.world-r", build_vignettes = TRUE)
 library(data.world)
-library(sf)
+library(geojsonsf)
+library(broom)
 Children_Blood_Lead <- download_file_as_data_frame(owner_id = "city-of-ny", dataset_id = "tnry-kwh5", file_name = "children-under-6-yrs-with-elevated-blood-lead-levels-bll-1.csv")
 ```
 
@@ -125,10 +126,6 @@ New_Blood_Lead_Children %>%
 
 
 ```{r}
-NYC_neighborhoods <- geojson_sf("community_districts.geojson")
 
-New_Blood_Lead_Children %>%
-ggplot(data=NYC_neighborhoods)+
-  geom_sf(aes(fill = ))
 ```
 
