@@ -9,8 +9,8 @@ output:
 ---
 
 ## Blood Lead Levels in NYC Children
-*Research Question*\
-  "How has Blood Lead Level(BLL) changed over time and what areas have higher BLL's?"
+*Hypothesis*\
+  "In Boroughs where an increased number of children tested positive for elevated blood lead levels, we can anticipate that there will be higher rates of poverty."
 
 ## Background\
 
@@ -25,11 +25,19 @@ library(ggrepel)
 library(janitor)
 library(googlesheets4)
 #install.packages("devtools")
+install.packages("data.table")
+install.packages("dplyr")
+install.packages("formattable")
+install.packages("tidyr")
 install.packages("googlesheets4")
 devtools::install_github("datadotworld/data.world-r", build_vignettes = TRUE)
 library(data.world)
 library(geojsonsf)
 library(broom)
+library(data.table)
+library(dplyr)
+library(formattable)
+library(tidyr)
 Children_Blood_Lead <- download_file_as_data_frame(owner_id = "city-of-ny", dataset_id = "tnry-kwh5", file_name = "children-under-6-yrs-with-elevated-blood-lead-levels-bll-1.csv")
 NYC_Poverty <- read_sheet("https://docs.google.com/spreadsheets/d/1ucEkW71LBr0kOU8hBvQ3tDtSDD6RWV1B664HenJr9Y0/edit?usp=sharing")
 ```
@@ -64,6 +72,10 @@ New_Children_Lead_Poision <- Simple_Children_Blood_Lead %>%
 New_Blood_Lead_Children <- New_Children_Lead_Poision %>%
   mutate(Total_Lead_Poisoned = (BLL_5 + BLL_10 + BLL_15)) %>%
   mutate(Total_Not_Lead_Poisioned = (Total_Test) - (BLL_5 + BLL_10 + BLL_15))
+
+Poverty_Blood <- right_join(NYC_Poverty, New_Blood_Lead_Children, by = c("Year", "geo_area_name")) %>%
+  filter(geo_type == "Borough")
+
 ```
 
 ### Data Viz Area 
@@ -128,7 +140,11 @@ New_Blood_Lead_Children %>%
 ```
 
 
+##Findings
+
 ```{r}
+
+formattable(Poverty_Blood)
 
 ```
 
