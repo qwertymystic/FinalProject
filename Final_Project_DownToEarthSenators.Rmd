@@ -76,7 +76,8 @@ New_Blood_Lead_Children <- New_Children_Lead_Poision %>%
   mutate(Total_Not_Lead_Poisioned = (Total_Test) - (BLL_5 + BLL_10 + BLL_15))
 
 Poverty_Blood <- right_join(NYC_Poverty, New_Blood_Lead_Children, by = c("Year", "geo_area_name")) %>%
-  filter(geo_type == "Borough")
+  filter(geo_type == "Borough") %>%
+  mutate(Pos_Test_Rate = (Total_Lead_Poisoned/Total_Test) * 100)
 
 ```
 
@@ -140,6 +141,8 @@ New_Blood_Lead_Children %>%
 
 formattable(Poverty_Blood)
 
+view(Poverty_Blood)
+
 ```
 
 
@@ -159,3 +162,4 @@ formattable(Poverty_Blood)
 'BLL_15_ratio': <num> the ratio describing the number of children that tested with a Blood Lead Level of equal to or over 15 micrograms per deciliter over total children tested that year.
 'Total_Lead_Poisoned': <num> the combined number of children who tested positive for elevated blood lead levels. BLL_5 + BLL_10 + BLL_15 = Total_Lead_Poisoned.
 'Total_Not_Lead_Poisoned': <num> the combined number of children who tested negative for elevated blood lead levels. Total_Test – Total_Lead_Poisoned = Total_Not_Lead_Poisoned.
+'Pos_Test_Rate': <num> the percentage of children that tested positive out of the total number of children tested.
