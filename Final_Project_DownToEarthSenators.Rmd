@@ -15,6 +15,7 @@ output:
   "In Boroughs where an increased number of children tested positive for elevated blood lead levels, we can anticipate that there will be higher rates of poverty."
 
 ## Background\
+  
 
 ## Methods\
 Our dataset provides information about the number of children in New York City that tested with elevated levels of lead in their blood by location and year. 
