@@ -119,7 +119,6 @@ New_Blood_Lead_Children %>%
   theme_gray()
 
 #This graph shows changes in BLL rates >=15 in children from 2005-2016, separated by the five NYC boroughs.
->>>>>>> ae6c95a449e625561cae7738fa339b8f90749ee6
 
 ```
 
