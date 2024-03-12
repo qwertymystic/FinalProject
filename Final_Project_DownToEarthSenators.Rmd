@@ -125,6 +125,10 @@ New_Blood_Lead_Children %>%
 
 
 ```{r}
-NYC_neighborhoods <- read_sf("geo_export_d7845c4f-51f3-4494-87c5-d8ae80c51bf9.shp")
+NYC_neighborhoods <- geojson_sf("community_districts.geojson")
+
+New_Blood_Lead_Children %>%
+ggplot(data=NYC_neighborhoods)+
+  geom_sf(aes(fill = ))
 ```
 
