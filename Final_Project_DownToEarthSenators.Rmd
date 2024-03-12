@@ -6,6 +6,8 @@ output:
   prettydoc::html_pretty:
     theme: hpster
     highlight: github
+    toc: true
+    toc_depth: 1
 ---
 
 ## Blood Lead Levels in NYC Children
@@ -94,14 +96,6 @@ New_Blood_Lead_Children %>%
 ## Do i need to ungroup here?
 
 # Map of the 5 boroughs we could use: https://www.loumovesyou.com/wp-content/uploads/2022/11/FiveBoroughs-01.jpg
-
-## Potentially too many lines, have to think about it for a bit longer
-
-New_Blood_Lead_Children %>%
-  filter(geo_type == "Neighborhood (UHF 42)", borough_id == "2") %>%
-  group_by(geo_area_name) %>%
-  ggplot() +
-  geom_line(aes(x = Year, y = Total_Lead_Poisoned, color = geo_area_name))
   
 New_Blood_Lead_Children %>%
   filter(geo_type == 'Borough') %>%
