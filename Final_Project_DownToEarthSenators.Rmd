@@ -1,5 +1,5 @@
 ---
-title: "Final Project - Report"
+title: "Final Project - Blood Lead Levels in NYC Children"
 author: "Adam Fucich, Asher Andrus, Sophia Baitzel, Anita Avila"
 date: "03-14-24"
 output:
@@ -8,17 +8,17 @@ output:
     highlight: github
     toc: true
     toc_depth: 5
+    toc_title: "Table of Contents"
 ---
 
-## Blood Lead Levels in NYC Children
-### *Hypothesis*\
+## *Hypothesis*\
   "In Boroughs where an increased number of children tested positive for elevated blood lead levels, we anticipate that there will be higher rates of poverty."
 
-## Background\
+## *Background*\
 
 ![Five NYC Boroughs](https://www.worldatlas.com/r/w768/upload/c6/23/73/shutterstock-152208935.jpg)
 
-## Methods\
+## *Methods*\
 Our dataset provides information about the number of children in New York City that tested with elevated levels of lead in their blood by location and year. 
 Every year, all children at the ages of 1 and 2 years old, living in New York City are required to get their blood lead levels tested. If they are at risk for elevated levels, they are tested up until the age of 6. The data is provided to the public by the Department of Health and Mental Hygiene, through the data.cityofnewyork.us website. The data is sorted by the year and the location, which is broken down into the area name, area ID, geography type (borough, citywide, or neighborhood), and the borough ID. The variables are broken up into columns displaying the number of children that tested within certain blood lead level ranges, measured in micrograms per deciliter (µg/dL).
 
@@ -48,7 +48,7 @@ NYC_Poverty <- read.csv("NYC Poverty Rates - Sheet1.csv")
 ## NYC_Poverty2 <- read_sheet("https://docs.google.com/spreadsheets/d/1ucEkW71LBr0kOU8hBvQ3tDtSDD6RWV1B664HenJr9Y0/edit?usp=sharing")
 ```
 
-## Data Tidying 
+## *Data Tidying*
 ```{r setup, message =FALSE}
 Filtered_Children_Blood_Lead <- Children_Blood_Lead %>%
   select(-ends_with("_NOTES")) 
@@ -85,7 +85,7 @@ Poverty_Blood <- right_join(NYC_Poverty, New_Blood_Lead_Children, by = c("Year",
 
 ```
 
-## Graphs 
+## *Graphs* 
 
 ```{r fig.width=6, fig.height=6, fig.align='center', echo=FALSE}
 ## Line graph comparing total children testing positive for BBL by borough. Needs title?
@@ -129,7 +129,7 @@ Poverty_Blood %>%
 ```
 
 
-## Findings
+## *Findings*
 
 ```{r, echo=FALSE}
   
@@ -176,7 +176,7 @@ poverty_blood_table_3 %>%
 Our tables show that out hypothesis was not entirely correct, we anticipated that the boroughs with the most rates of poverty would also have the highest rates of elevated Blood Lead Levels in Chidren. Instead, we found that there does seem to be some correlation between poverty rates and percent of positive tests per borough. Staten Island and Manhattan have consistently had the lowest levels of Evelvated Blood Lead levels as well as the lowest rates of poverty. Vice verca, Brooklyn and the Bronx have had the highest rates of poverty and positive tests, potentially indicating a positive relationship between poverty level and positive tests. 
 
 
-## Data Dictionary 
+## *Data Dictionary* 
 'geo_type': <chr> the type of geographic region (borough, citywide, or neighborhood).
 'geo_area_id': <num> each area is given a unique ID number, with boroughs being given numbers 1-5, while neighborhoods are given 3 digit numbers, with their first number being correlated with the ID of the borough they are in.
 'geo_area_name': <chr> the name of the borough, city, or neighborhood respectively.
@@ -197,7 +197,7 @@ Our tables show that out hypothesis was not entirely correct, we anticipated tha
 
 ```
 
-# Discussion\
+# *Discussion*\
 
 
-# Conclusion\
+# *Conclusion*\
