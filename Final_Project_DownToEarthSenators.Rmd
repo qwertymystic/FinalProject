@@ -116,6 +116,15 @@ New_Blood_Lead_Children %>%
 
 #This graph shows changes in BLL rates >=5 in children from 2005-2016, separated by the five NYC boroughs.
 
+Poverty_Blood %>%
+  ggplot() +
+  geom_line(aes(x = Year, y = Poverty_Rate, color = geo_area_name), linetype = "solid", linewidth = 1.25) +
+  scale_color_manual(values = wes_palette("Cavalcanti1", 5, type = "discrete")) +
+   scale_y_continuous(breaks = seq(0, 30, 5)) +
+  scale_x_continuous(breaks = seq(2005, 2016, 1)) +
+  labs(x = "Year", y = "Poverty Rate", color = "Boroughs", caption = "Poverty Rates by Borough from 2005 to 2016") +
+  theme_gray() +
+  theme(plot.caption = element_text(hjust = .5), axis.text.x = element_text(angle = 45))
 
 ```
 
