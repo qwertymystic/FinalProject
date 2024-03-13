@@ -12,7 +12,7 @@ output:
 
 ## Blood Lead Levels in NYC Children
 ### *Hypothesis*\
-  "In Boroughs where an increased number of children tested positive for elevated blood lead levels, we can anticipate that there will be higher rates of poverty."
+  "In Boroughs where an increased number of children tested positive for elevated blood lead levels, we anticipate that there will be higher rates of poverty."
 
 ## Background\
 
