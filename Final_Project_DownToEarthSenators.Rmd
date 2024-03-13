@@ -135,6 +135,7 @@ New_Blood_Lead_Children %>%
 
 #This graph shows changes in BLL rates >=15 in children from 2005-2016, separated by the five NYC boroughs.
 
+
 ```
 
 
@@ -142,13 +143,53 @@ New_Blood_Lead_Children %>%
 
 ```{r}
 
-poverty_blood_table_1 <- Poverty_Blood %>%
-  select(-c("geo_area_id", "borough_id", "BLL_5", "BLL_10", "BLL_15", "geo_type", "Total_Not_Lead_Poisioned", "Total_Lead_Poisoned", "Total_Test", "BLL_5_ratio", "BLL_10_ratio", "BLL_15_ratio")) %>%
+poverty_blood_table <- Poverty_Blood %>%
+  select(-c("geo_area_id", "borough_id", "BLL_5", "BLL_10", "BLL_15", "geo_type", "Total_Not_Lead_Poisioned", "Total_Lead_Poisoned", "Total_Test", "BLL_5_ratio", "BLL_10_ratio", "BLL_15_ratio",)) %>%
+  rename("Borough" = 'geo_area_name') %>%
+  rename("Poverty Rate" = 'Poverty_Rate')%>%
+  rename("Percent Positive Tests" = 'Pos_Test_Rate')
 
 poverty_blood_table_1 %>%
-  kbl(caption = "Positive Test Rate and Poverty Rate Per Borough from 2005 to 2016") %>%
+  kbl(caption = "Positive Test Rate and Poverty Rate Per Borough in 2005") %>%
   kable_styling()
   
+
+poverty_blood_table_1 <- Poverty_Blood %>%
+  select(-c("geo_area_id", "borough_id", "BLL_5", "BLL_10", "BLL_15", "geo_type", "Total_Not_Lead_Poisioned", "Total_Lead_Poisoned", "Total_Test", "BLL_5_ratio", "BLL_10_ratio", "BLL_15_ratio",)) %>%
+  rename("Borough" = 'geo_area_name') %>%
+  rename("Poverty Rate" = 'Poverty_Rate')%>%
+  rename("Percent Positive Tests" = 'Pos_Test_Rate') %>%
+  filter(Year == "2005") %>%
+  select(-c("Year"))
+  
+
+poverty_blood_table_1 %>%
+  kbl(caption = "Positive Test Rate and Poverty Rate Per Borough in 2005") %>%
+  kable_styling()
+
+poverty_blood_table_2 <- Poverty_Blood %>%
+  select(-c("geo_area_id", "borough_id", "BLL_5", "BLL_10", "BLL_15", "geo_type", "Total_Not_Lead_Poisioned", "Total_Lead_Poisoned", "Total_Test", "BLL_5_ratio", "BLL_10_ratio", "BLL_15_ratio")) %>%
+  rename("Borough" = 'geo_area_name') %>%
+  rename("Poverty Rate" = 'Poverty_Rate')%>%
+  rename("Percent Positive Tests" = 'Pos_Test_Rate') %>%
+  filter(Year == "2010")%>%
+  select(-c("Year"))
+
+poverty_blood_table_2 %>%
+  kbl(caption = "Positive Test Rate and Poverty Rate Per Borough in 2010") %>%
+  kable_styling()
+  
+poverty_blood_table_3 <- Poverty_Blood %>%
+  select(-c("geo_area_id", "borough_id", "BLL_5", "BLL_10", "BLL_15", "geo_type", "Total_Not_Lead_Poisioned", "Total_Lead_Poisoned", "Total_Test", "BLL_5_ratio", "BLL_10_ratio", "BLL_15_ratio")) %>%
+  rename("Borough" = 'geo_area_name') %>%
+  rename("Poverty Rate" = 'Poverty_Rate')%>%
+  rename("Percent Positive Tests" = 'Pos_Test_Rate') %>%
+  filter(Year == "2015")%>%
+  select(-c("Year"))
+
+poverty_blood_table_3 %>%
+  kbl(caption = "Positive Test Rate and Poverty Rate Per Borough in 2015") %>%
+  kable_styling()
 
 ```
 
