@@ -139,7 +139,6 @@ New_Blood_Lead_Children %>%
 
 #This graph shows changes in BLL rates >=15 in children from 2005-2016, separated by the five NYC boroughs.
 
-
 ```
 
 
@@ -181,9 +180,8 @@ poverty_blood_table_3 <- Poverty_Blood %>%
 
 poverty_blood_table_3 %>%
   kbl(caption = "Positive Test Rate and Poverty Rate Per Borough in 2015")%>%
-  kable_styling() #%>%
-  #text_spec("Percent Positive Tests", color = itself(`Percent Positive Tests` == 2.778493, "darkred"))
-
+  kable_styling() #%>% 
+  #cell_spec("Percent Positive Tests", color = itself(`Percent Positive Tests` == 2.778493, "darkred"))
 ```
 
 ## Data Dictionary 
