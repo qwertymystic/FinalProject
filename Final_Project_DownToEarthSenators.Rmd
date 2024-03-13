@@ -16,7 +16,7 @@ output:
 
 ## Background\
 
-![NYC Boroughs](https://images.app.goo.gl/esmpBACP2YofGEvz8)
+![Five NYC Boroughs](https://www.worldatlas.com/r/w768/upload/c6/23/73/shutterstock-152208935.jpg)
 
 ## Methods\
 Our dataset provides information about the number of children in New York City that tested with elevated levels of lead in their blood by location and year. 
@@ -150,7 +150,7 @@ New_Blood_Lead_Children %>%
   
 poverty_blood_table_1 <- Poverty_Blood %>%
   select(-c("geo_area_id", "borough_id", "BLL_5", "BLL_10", "BLL_15", "geo_type", "Total_Not_Lead_Poisioned", "Total_Lead_Poisoned", "Total_Test", "BLL_5_ratio", "BLL_10_ratio", "BLL_15_ratio",)) %>%
-  rename("Borough" = 'geo_area_name') %>%
+  rename("Borough in 2005" = 'geo_area_name') %>%
   rename("Poverty Rate" = 'Poverty_Rate')%>%
   rename("Percent Positive Tests" = 'Pos_Test_Rate') %>%
   filter(Year == "2005") %>%
@@ -162,7 +162,7 @@ poverty_blood_table_1 %>%
 
 poverty_blood_table_2 <- Poverty_Blood %>%
   select(-c("geo_area_id", "borough_id", "BLL_5", "BLL_10", "BLL_15", "geo_type", "Total_Not_Lead_Poisioned", "Total_Lead_Poisoned", "Total_Test", "BLL_5_ratio", "BLL_10_ratio", "BLL_15_ratio")) %>%
-  rename("Borough" = 'geo_area_name') %>%
+  rename("Borough in 2010" = 'geo_area_name') %>%
   rename("Poverty Rate" = 'Poverty_Rate')%>%
   rename("Percent Positive Tests" = 'Pos_Test_Rate') %>%
   filter(Year == "2010")%>%
@@ -174,7 +174,7 @@ poverty_blood_table_2 %>%
   
 poverty_blood_table_3 <- Poverty_Blood %>%
   select(-c("geo_area_id", "borough_id", "BLL_5", "BLL_10", "BLL_15", "geo_type", "Total_Not_Lead_Poisioned", "Total_Lead_Poisoned", "Total_Test", "BLL_5_ratio", "BLL_10_ratio", "BLL_15_ratio")) %>%
-  rename("Borough" = 'geo_area_name') %>%
+  rename("Borough in 2015" = 'geo_area_name') %>%
   rename("Poverty Rate" = 'Poverty_Rate')%>%
   rename("Percent Positive Tests" = 'Pos_Test_Rate') %>%
   filter(Year == "2015")%>%
@@ -185,6 +185,8 @@ poverty_blood_table_3 %>%
   kable_styling() #%>% 
   #cell_spec("Percent Positive Tests", color = itself(`Percent Positive Tests` == 2.778493, "darkred"))
 ```
+Our tables show that out hypothesis was not entirely correct, we anticipated that the boroughs with the most rates of poverty would also have the highest rates of elevated Blood Lead Levels in Chidren. Instead, we found that there does seem to be some correlation between poverty rates and percent of positive tests per borough. Staten Island and Manhattan have consistently had the lowest levels of Evelvated Blood Lead levels as well as the lowest rates of poverty. Vice verca, Brooklyn and the Bronx have had the highest rates of poverty and positive tests, potentially indicating a positive relationship between poverty level and positive tests. 
+
 
 ## Data Dictionary 
 'geo_type': <chr> the type of geographic region (borough, citywide, or neighborhood).
