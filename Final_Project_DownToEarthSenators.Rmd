@@ -110,9 +110,9 @@ New_Blood_Lead_Children %>%
   scale_color_manual(values = wes_palette("Cavalcanti1", 5, type = "discrete")) +
   scale_y_continuous(breaks = seq(0, 150, 25)) +
   scale_x_continuous(breaks = seq(2005, 2016, 1)) +
-  labs(x = "Year", y = "BLL >= 5 mcg/dL Per 1,000", color = "Boroughs", caption = "Rate of Kids below the age of six who had greater than or equal to 5 mcg/dL elavated Blood Lead Levels") +
+  labs(x = "Year", y = "BLL >= 5 mcg/dL Per 1,000", color = "Boroughs", caption = "Rate of Kids below six who had greater than or equal to 5 micrograms per deciliter elavated Blood Lead Levels") +
   theme_gray() +
-  theme(plot.caption = element_text(hjust = .2), axis.text.x = element_text(angle = 45))
+  theme(plot.caption = element_text(hjust = .27), axis.text.x = element_text(angle = 45))
 
 #This graph shows changes in BLL rates >=5 in children from 2005-2016, separated by the five NYC boroughs.
 
