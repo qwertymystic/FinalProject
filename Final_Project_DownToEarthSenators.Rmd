@@ -33,6 +33,8 @@ install.packages("formattable")
 install.packages("tidyr")
 install.packages("googlesheets4")
 devtools::install_github("datadotworld/data.world-r", build_vignettes = TRUE)
+install.packages(kableExtra)
+library(kableExtra)
 library(data.world)
 library(geojsonsf)
 library(broom)
@@ -140,9 +142,12 @@ New_Blood_Lead_Children %>%
 
 ```{r}
 
-formattable(Poverty_Blood)
+poverty_blood_table_1 <- Poverty_Blood %>%
+  select(-c("geo_area_id", "borough_id", "BLL_5", "BLL_10", "BLL_15", "geo_type", "Total_Not_Lead_Poisioned", "Total_Lead_Poisoned", "Total_Test", "BLL_5_ratio", "BLL_10_ratio", "BLL_15_ratio"))
 
-view(Poverty_Blood)
+poverty_blood_table_1 %>%
+  kbl() %>%
+  kable_styling()
 
 ```
 
