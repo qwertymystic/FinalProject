@@ -44,7 +44,8 @@ library(dplyr)
 library(tidyr)
 
 Children_Blood_Lead <- download_file_as_data_frame(owner_id = "city-of-ny", dataset_id = "tnry-kwh5", file_name = "children-under-6-yrs-with-elevated-blood-lead-levels-bll-1.csv")
-NYC_Poverty <- read_sheet("https://docs.google.com/spreadsheets/d/1ucEkW71LBr0kOU8hBvQ3tDtSDD6RWV1B664HenJr9Y0/edit?usp=sharing")
+NYC_Poverty <- read.csv("NYC Poverty Rates - Sheet1.csv")
+## NYC_Poverty2 <- read_sheet("https://docs.google.com/spreadsheets/d/1ucEkW71LBr0kOU8hBvQ3tDtSDD6RWV1B664HenJr9Y0/edit?usp=sharing")
 ```
 
 ## Data Tidying 
@@ -105,7 +106,7 @@ New_Blood_Lead_Children %>%
   filter(geo_type == 'Borough') %>%
   drop_na(borough_id) %>%
   ggplot() +
-  geom_line(aes(x = Year, y = BLL_5_ratio, color = geo_area_name), linetype = "longdash") +
+  geom_line(aes(x = Year, y = BLL_5_ratio, color = geo_area_name), linetype = "longdash", linewidth = 1.25) +
   scale_color_manual(values = wes_palette("Cavalcanti1", 5, type = "discrete")) +
   scale_y_continuous(breaks = seq(0, 150, 25)) +
   scale_x_continuous(breaks = seq(2005, 2016, 1)) +
@@ -119,7 +120,7 @@ New_Blood_Lead_Children %>%
   filter(geo_type == 'Borough') %>%
   drop_na(borough_id) %>%
  ggplot() +
-  geom_line(aes(x = Year, y = BLL_10_ratio, color = geo_area_name), linetype = "longdash") +
+  geom_line(aes(x = Year, y = BLL_10_ratio, color = geo_area_name), linetype = "longdash", linewidth = 1.25) +
   scale_color_manual(values = wes_palette("Cavalcanti1", 5, type = "discrete")) +
   scale_x_continuous(breaks = seq(2005, 2016, 1)) +
   labs(x = "Year", y = "BLL >= 10 Per 1,000", color = "Boroughs", caption = "Rate of Kids below the age of six who had greater than or equal to 10 mcg/dL elavated Blood Lead Levels") +
@@ -132,7 +133,7 @@ New_Blood_Lead_Children %>%
   filter(geo_type == 'Borough') %>%
   drop_na(borough_id) %>%
   ggplot() +
-  geom_line(aes(x = Year, y = BLL_15_ratio, color = geo_area_name), linetype = "longdash") +
+  geom_line(aes(x = Year, y = BLL_15_ratio, color = geo_area_name), linetype = "longdash", linewidth = 1.25) +
   scale_color_manual(values = wes_palette("Cavalcanti1", 5, type = "discrete")) +
   scale_x_continuous(breaks = seq(2005, 2016, 1)) +
   labs(x = "Year", y = "BLL >= 15 Per 1,000", color = "Boroughs", caption = "Rate of Kids below the age of six who had greater than or equal to 15 mcg/dL elavated Blood Lead Levels") +
