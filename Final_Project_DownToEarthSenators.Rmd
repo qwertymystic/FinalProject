@@ -143,11 +143,12 @@ New_Blood_Lead_Children %>%
 ```{r}
 
 poverty_blood_table_1 <- Poverty_Blood %>%
-  select(-c("geo_area_id", "borough_id", "BLL_5", "BLL_10", "BLL_15", "geo_type", "Total_Not_Lead_Poisioned", "Total_Lead_Poisoned", "Total_Test", "BLL_5_ratio", "BLL_10_ratio", "BLL_15_ratio"))
+  select(-c("geo_area_id", "borough_id", "BLL_5", "BLL_10", "BLL_15", "geo_type", "Total_Not_Lead_Poisioned", "Total_Lead_Poisoned", "Total_Test", "BLL_5_ratio", "BLL_10_ratio", "BLL_15_ratio")) %>%
 
 poverty_blood_table_1 %>%
-  kbl() %>%
+  kbl(caption = "Positive Test Rate and Poverty Rate Per Borough from 2005 to 2016") %>%
   kable_styling()
+  
 
 ```
 
