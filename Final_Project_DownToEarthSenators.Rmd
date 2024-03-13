@@ -177,22 +177,38 @@ Our tables show that out hypothesis was not entirely correct, we anticipated tha
 
 
 ## *Data Dictionary* \
-##**'geo_type'**: <chr> the type of geographic region (borough, citywide, or neighborhood).\
-##**'geo_area_id'**: <num> each area is given a unique ID number, with boroughs being given numbers 1-5, while neighborhoods are given 3 digit numbers, with their first number being correlated with the ID of the borough they are in.\
-##**'geo_area_name'**: <chr> the name of the borough, city, or neighborhood respectively.
-##**'borough_id'**: <num> the same as the ID number given to the boroughs in geo_area_id. This column gives every neighborhood the ID of the borough its located in.\
-##**'Year'**: <num> the year that the test data in the row is from. The years range from 2005-2016.\
-##**'Poverty_Rate'**: <num> The poverty rate of the borough in the given year.\
-##**'BLL_5'**: <num> the number of children in that year that tested as having a Blood Lead Level of equal to or over 5 micrograms per deciliter.\
-##**'BLL_10'**: <num> the number of children in that year that tested as having a Blood Lead Level of equal to or over 10 micrograms per deciliter.\
-##**'BLL_15'**: <num> the number of children in that year that tested as having a Blood Lead Level of equal to or over 15 micrograms per deciliter.\
-##**'Total_Test'**: <num> the total number of children that were tested in that area and that year.\
-##**'BLL_5_ratio'**: <num> the ratio describing the number of children that tested with a Blood Lead Level of equal to or over 5 micrograms per deciliter over total children tested that year.\
-##**'BLL_10_ratio'**: <num> the ratio describing the number of children that tested with a Blood Lead Level of equal to or over 10 micrograms per deciliter over total children tested that year.\
-##**'BLL_15_ratio'**: <num> the ratio describing the number of children that tested with a Blood Lead Level of equal to or over 15 micrograms per deciliter over total children tested that year.\
-##**'Total_Lead_Poisoned'**: <num> the combined number of children who tested positive for elevated blood lead levels. BLL_5 + BLL_10 + BLL_15 = Total_Lead_Poisoned.
-##**'Total_Not_Lead_Poisoned'**: <num> the combined number of children who tested negative for elevated blood lead levels. Total_Test – Total_Lead_Poisoned = Total_Not_Lead_Poisoned.\
-##**'Pos_Test_Rate'**: <num> the percentage of children that tested positive out of the total number of children tested.\
+### **'geo_type'**:\
+<chr> the type of geographic region (borough, citywide, or neighborhood).\
+### **'geo_area_id'**:\
+<num> each area is given a unique ID number, with boroughs being given numbers 1-5, while neighborhoods are given 3 digit numbers, with their first number being correlated with the ID of the borough they are in.\
+### **'geo_area_name'**:\
+<chr> the name of the borough, city, or neighborhood respectively.
+### **'borough_id'**:\
+<num> the same as the ID number given to the boroughs in geo_area_id. This column gives every neighborhood the ID of the borough its located in.\
+### **'Year'**:\
+<num> the year that the test data in the row is from. The years range from 2005-2016.\
+### **'Poverty_Rate'**:\
+<num> The poverty rate of the borough in the given year.\
+### **'BLL_5'**:\
+<num> the number of children in that year that tested as having a Blood Lead Level of equal to or over 5 micrograms per deciliter.\
+### **'BLL_10'**:\
+<num> the number of children in that year that tested as having a Blood Lead Level of equal to or over 10 micrograms per deciliter.\
+### **'BLL_15'**:\
+<num> the number of children in that year that tested as having a Blood Lead Level of equal to or over 15 micrograms per deciliter.\
+### **'Total_Test'**:\
+<num> the total number of children that were tested in that area and that year.\
+### **'BLL_5_ratio'**:\
+<num> the ratio describing the number of children that tested with a Blood Lead Level of equal to or over 5 micrograms per deciliter over total children tested that year.\
+### **'BLL_10_ratio'**:\
+<num> the ratio describing the number of children that tested with a Blood Lead Level of equal to or over 10 micrograms per deciliter over total children tested that year.\
+### **'BLL_15_ratio'**:\
+<num> the ratio describing the number of children that tested with a Blood Lead Level of equal to or over 15 micrograms per deciliter over total children tested that year.\
+### **'Total_Lead_Poisoned'**:\
+<num> the combined number of children who tested positive for elevated blood lead levels. BLL_5 + BLL_10 + BLL_15 = Total_Lead_Poisoned.
+### **'Total_Not_Lead_Poisoned'**:\
+<num> the combined number of children who tested negative for elevated blood lead levels. Total_Test – Total_Lead_Poisoned = Total_Not_Lead_Poisoned.\
+### **'Pos_Test_Rate'**:\
+<num> the percentage of children that tested positive out of the total number of children tested.\
 ```{r}
 
 ```
