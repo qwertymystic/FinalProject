@@ -16,6 +16,8 @@ output:
 
 ## Background\
 
+![NYC Boroughs](https://images.app.goo.gl/esmpBACP2YofGEvz8)
+
 ## Methods\
 Our dataset provides information about the number of children in New York City that tested with elevated levels of lead in their blood by location and year. 
 Every year, all children at the ages of 1 and 2 years old, living in New York City are required to get their blood lead levels tested. If they are at risk for elevated levels, they are tested up until the age of 6. The data is provided to the public by the Department of Health and Mental Hygiene, through the data.cityofnewyork.us website. The data is sorted by the year and the location, which is broken down into the area name, area ID, geography type (borough, citywide, or neighborhood), and the borough ID. The variables are broken up into columns displaying the number of children that tested within certain blood lead level ranges, measured in micrograms per deciliter (µg/dL).
