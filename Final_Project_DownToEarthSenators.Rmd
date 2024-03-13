@@ -158,7 +158,7 @@ poverty_blood_table_1 <- Poverty_Blood %>%
   select(-c("Year"))
 
 poverty_blood_table_1 %>%
-  kbl(caption = "Positive Test Rate and Poverty Rate Per Borough in 2005") %>%
+  kbl() %>%
   kable_styling()
 
 poverty_blood_table_2 <- Poverty_Blood %>%
@@ -170,8 +170,8 @@ poverty_blood_table_2 <- Poverty_Blood %>%
   select(-c("Year"))
 
 poverty_blood_table_2 %>%
-  kbl(caption = "Positive Test Rate and Poverty Rate Per Borough in 2010") %>%
-  kable_styling
+  kbl() %>%
+  kable_styling()
   
 poverty_blood_table_3 <- Poverty_Blood %>%
   select(-c("geo_area_id", "borough_id", "BLL_5", "BLL_10", "BLL_15", "geo_type", "Total_Not_Lead_Poisioned", "Total_Lead_Poisoned", "Total_Test", "BLL_5_ratio", "BLL_10_ratio", "BLL_15_ratio")) %>%
@@ -182,7 +182,7 @@ poverty_blood_table_3 <- Poverty_Blood %>%
   select(-c("Year"))
 
 poverty_blood_table_3 %>%
-  kbl(caption = "Positive Test Rate and Poverty Rate Per Borough in 2015")%>%
+  kbl()%>%
   kable_styling() #%>% 
   #cell_spec("Percent Positive Tests", color = itself(`Percent Positive Tests` == 2.778493, "darkred"))
 ```
