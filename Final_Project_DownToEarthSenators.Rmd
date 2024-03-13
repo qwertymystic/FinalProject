@@ -27,20 +27,16 @@ library(ggrepel)
 library(janitor)
 library(googlesheets4)
 #install.packages("devtools")
-install.packages("data.table")
-install.packages("dplyr")
-install.packages("formattable")
-install.packages("tidyr")
-install.packages("googlesheets4")
-devtools::install_github("datadotworld/data.world-r", build_vignettes = TRUE)
-install.packages(kableExtra)
+#install.packages("dplyr")
+#install.packages("tidyr")
+#install.packages("googlesheets4")
+#devtools::install_github("datadotworld/data.world-r", build_vignettes = TRUE)
+#install.packages(kableExtra)
 library(kableExtra)
 library(data.world)
 library(geojsonsf)
 library(broom)
-library(data.table)
 library(dplyr)
-library(formattable)
 library(tidyr)
 
 Children_Blood_Lead <- download_file_as_data_frame(owner_id = "city-of-ny", dataset_id = "tnry-kwh5", file_name = "children-under-6-yrs-with-elevated-blood-lead-levels-bll-1.csv")
@@ -108,7 +104,7 @@ New_Blood_Lead_Children %>%
   geom_line(aes(x = Year, y = BLL_5_ratio, color = geo_area_name), linetype = "longdash") +
   scale_y_continuous(breaks = seq(0, 150, 25)) +
   scale_x_continuous(breaks = seq(2005, 2016, 1)) +
-  labs(x = "Year", y = "BLL >= 5 Per 1,000", color = "Boroughs", caption = "Rate of Kids below the age of six who had \n greater than or equal to 5 mcg/dL uelavated") +
+  labs(x = "Year", y = "BLL >= 5 Per 1,000", color = "Boroughs", caption = "Rate of Kids below the age of six who had greater than or equal to 5 mcg/dL uelavated") +
   theme_gray()
 
 #This graph shows changes in BLL rates >=5 in children from 2005-2016, separated by the five NYC boroughs.
@@ -119,7 +115,7 @@ New_Blood_Lead_Children %>%
  ggplot() +
   geom_line(aes(x = Year, y = BLL_10_ratio, color = geo_area_name), linetype = "longdash") +
   scale_x_continuous(breaks = seq(2005, 2016, 1)) +
-  labs(x = "Year", y = "BLL >= 10 Per 1,000", color = "Boroughs", caption = "Rate of Kids below the age of six who had \n greater than or equal to 10 mcg/dL uelavated") +
+  labs(x = "Year", y = "BLL >= 10 Per 1,000", color = "Boroughs", caption = "Rate of Kids below the age of six who had greater than or equal to 10 mcg/dL uelavated") +
   theme_gray()
 
 #This graph shows changes in BLL rates >=10 in children from 2005-2016, separated by the five NYC boroughs.
@@ -130,7 +126,7 @@ New_Blood_Lead_Children %>%
   ggplot() +
   geom_line(aes(x = Year, y = BLL_15_ratio, color = geo_area_name), linetype = "longdash") +
   scale_x_continuous(breaks = seq(2005, 2016, 1)) +
-  labs(x = "Year", y = "BLL >= 15 Per 1,000", color = "Boroughs", caption = "Rate of Kids below the age of six who had \n greater than or equal to 15 mcg/dL uelavated") +
+  labs(x = "Year", y = "BLL >= 15 Per 1,000", color = "Boroughs", caption = "Rate of Kids below the age of six who had greater than or equal to 15 mcg/dL uelavated") +
   theme_gray()
 
 #This graph shows changes in BLL rates >=15 in children from 2005-2016, separated by the five NYC boroughs.
@@ -139,21 +135,10 @@ New_Blood_Lead_Children %>%
 ```
 
 
-##Findings
+## Findings
 
-```{r}
-
-poverty_blood_table <- Poverty_Blood %>%
-  select(-c("geo_area_id", "borough_id", "BLL_5", "BLL_10", "BLL_15", "geo_type", "Total_Not_Lead_Poisioned", "Total_Lead_Poisoned", "Total_Test", "BLL_5_ratio", "BLL_10_ratio", "BLL_15_ratio",)) %>%
-  rename("Borough" = 'geo_area_name') %>%
-  rename("Poverty Rate" = 'Poverty_Rate')%>%
-  rename("Percent Positive Tests" = 'Pos_Test_Rate')
-
-poverty_blood_table_1 %>%
-  kbl(caption = "Positive Test Rate and Poverty Rate Per Borough in 2005") %>%
-  kable_styling()
+```{r, echo=FALSE}
   
-
 poverty_blood_table_1 <- Poverty_Blood %>%
   select(-c("geo_area_id", "borough_id", "BLL_5", "BLL_10", "BLL_15", "geo_type", "Total_Not_Lead_Poisioned", "Total_Lead_Poisoned", "Total_Test", "BLL_5_ratio", "BLL_10_ratio", "BLL_15_ratio",)) %>%
   rename("Borough" = 'geo_area_name') %>%
@@ -193,7 +178,6 @@ poverty_blood_table_3 %>%
 
 ```
 
-
 ## Data Dictionary 
 'geo_type': <chr> the type of geographic region (borough, citywide, or neighborhood).
 'geo_area_id': <num> each area is given a unique ID number, with boroughs being given numbers 1-5, while neighborhoods are given 3 digit numbers, with their first number being correlated with the ID of the borough they are in.
@@ -211,6 +195,9 @@ poverty_blood_table_3 %>%
 'Total_Lead_Poisoned': <num> the combined number of children who tested positive for elevated blood lead levels. BLL_5 + BLL_10 + BLL_15 = Total_Lead_Poisoned.
 'Total_Not_Lead_Poisoned': <num> the combined number of children who tested negative for elevated blood lead levels. Total_Test – Total_Lead_Poisoned = Total_Not_Lead_Poisoned.
 'Pos_Test_Rate': <num> the percentage of children that tested positive out of the total number of children tested.
+```{r}
+
+```
 
 #Discussion\
 
