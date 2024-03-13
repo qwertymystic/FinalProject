@@ -1,17 +1,17 @@
 ---
 title: "Final Project - Report"
 author: "Adam Fucich, Asher Andrus, Sophia Baitzel, Anita Avila"
-date: "02-29-24"
+date: "03-14-24"
 output:
   prettydoc::html_pretty:
     theme: hpster
     highlight: github
     toc: true
-    toc_depth: 1
+    toc_depth: 5
 ---
 
 ## Blood Lead Levels in NYC Children
-*Hypothesis*\
+### *Hypothesis*\
   "In Boroughs where an increased number of children tested positive for elevated blood lead levels, we can anticipate that there will be higher rates of poverty."
 
 ## Background\
@@ -32,6 +32,8 @@ library(googlesheets4)
 #install.packages("googlesheets4")
 #devtools::install_github("datadotworld/data.world-r", build_vignettes = TRUE)
 #install.packages(kableExtra)
+devtools::install_github("karthik/wesanderson")
+library(wesanderson)
 library(kableExtra)
 library(data.world)
 library(geojsonsf)
@@ -80,7 +82,7 @@ Poverty_Blood <- right_join(NYC_Poverty, New_Blood_Lead_Children, by = c("Year",
 
 ```
 
-### Data Viz Area 
+## Graphs 
 
 ```{r fig.width=6, fig.height=6, fig.align='center', echo=FALSE}
 ## Line graph comparing total children testing positive for BBL by borough. Needs title?
@@ -96,16 +98,18 @@ New_Blood_Lead_Children %>%
 ## Do i need to ungroup here?
 
 # Map of the 5 boroughs we could use: https://www.loumovesyou.com/wp-content/uploads/2022/11/FiveBoroughs-01.jpg
-  
+
 New_Blood_Lead_Children %>%
   filter(geo_type == 'Borough') %>%
   drop_na(borough_id) %>%
   ggplot() +
   geom_line(aes(x = Year, y = BLL_5_ratio, color = geo_area_name), linetype = "longdash") +
+  scale_color_manual(values = wes_palette("Cavalcanti1", 5, type = "discrete")) +
   scale_y_continuous(breaks = seq(0, 150, 25)) +
   scale_x_continuous(breaks = seq(2005, 2016, 1)) +
-  labs(x = "Year", y = "BLL >= 5 Per 1,000", color = "Boroughs", caption = "Rate of Kids below the age of six who had greater than or equal to 5 mcg/dL uelavated") +
-  theme_gray()
+  labs(x = "Year", y = "BLL >= 5 Per 1,000", color = "Boroughs", caption = "Rate of Kids below the age of six who had greater than or equal to 5 mcg/dL elavated Blood Lead Levels") +
+  theme_gray() +
+  theme(plot.caption = element_text(hjust = .2))
 
 #This graph shows changes in BLL rates >=5 in children from 2005-2016, separated by the five NYC boroughs.
 
@@ -114,9 +118,11 @@ New_Blood_Lead_Children %>%
   drop_na(borough_id) %>%
  ggplot() +
   geom_line(aes(x = Year, y = BLL_10_ratio, color = geo_area_name), linetype = "longdash") +
+  scale_color_manual(values = wes_palette("Cavalcanti1", 5, type = "discrete")) +
   scale_x_continuous(breaks = seq(2005, 2016, 1)) +
-  labs(x = "Year", y = "BLL >= 10 Per 1,000", color = "Boroughs", caption = "Rate of Kids below the age of six who had greater than or equal to 10 mcg/dL uelavated") +
-  theme_gray()
+  labs(x = "Year", y = "BLL >= 10 Per 1,000", color = "Boroughs", caption = "Rate of Kids below the age of six who had greater than or equal to 10 mcg/dL elavated Blood Lead Levels") +
+  theme_gray() +
+  theme(plot.caption = element_text(hjust = .2))
 
 #This graph shows changes in BLL rates >=10 in children from 2005-2016, separated by the five NYC boroughs.
 
@@ -125,9 +131,11 @@ New_Blood_Lead_Children %>%
   drop_na(borough_id) %>%
   ggplot() +
   geom_line(aes(x = Year, y = BLL_15_ratio, color = geo_area_name), linetype = "longdash") +
+  scale_color_manual(values = wes_palette("Cavalcanti1", 5, type = "discrete")) +
   scale_x_continuous(breaks = seq(2005, 2016, 1)) +
-  labs(x = "Year", y = "BLL >= 15 Per 1,000", color = "Boroughs", caption = "Rate of Kids below the age of six who had greater than or equal to 15 mcg/dL uelavated") +
-  theme_gray()
+  labs(x = "Year", y = "BLL >= 15 Per 1,000", color = "Boroughs", caption = "Rate of Kids below the age of six who had greater than or equal to 15 mcg/dL elavated Blood Lead Levels") +
+  theme_gray() +
+  theme(plot.caption = element_text(hjust = .2))
 
 #This graph shows changes in BLL rates >=15 in children from 2005-2016, separated by the five NYC boroughs.
 
@@ -146,7 +154,6 @@ poverty_blood_table_1 <- Poverty_Blood %>%
   rename("Percent Positive Tests" = 'Pos_Test_Rate') %>%
   filter(Year == "2005") %>%
   select(-c("Year"))
-  
 
 poverty_blood_table_1 %>%
   kbl(caption = "Positive Test Rate and Poverty Rate Per Borough in 2005") %>%
@@ -162,7 +169,7 @@ poverty_blood_table_2 <- Poverty_Blood %>%
 
 poverty_blood_table_2 %>%
   kbl(caption = "Positive Test Rate and Poverty Rate Per Borough in 2010") %>%
-  kable_styling()
+  kable_styling
   
 poverty_blood_table_3 <- Poverty_Blood %>%
   select(-c("geo_area_id", "borough_id", "BLL_5", "BLL_10", "BLL_15", "geo_type", "Total_Not_Lead_Poisioned", "Total_Lead_Poisoned", "Total_Test", "BLL_5_ratio", "BLL_10_ratio", "BLL_15_ratio")) %>%
@@ -173,8 +180,9 @@ poverty_blood_table_3 <- Poverty_Blood %>%
   select(-c("Year"))
 
 poverty_blood_table_3 %>%
-  kbl(caption = "Positive Test Rate and Poverty Rate Per Borough in 2015") %>%
-  kable_styling()
+  kbl(caption = "Positive Test Rate and Poverty Rate Per Borough in 2015")%>%
+  kable_styling() #%>%
+  #text_spec("Percent Positive Tests", color = itself(`Percent Positive Tests` == 2.778493, "darkred"))
 
 ```
 
@@ -199,7 +207,7 @@ poverty_blood_table_3 %>%
 
 ```
 
-#Discussion\
+# Discussion\
 
 
-#Conclusion\
+# Conclusion\
