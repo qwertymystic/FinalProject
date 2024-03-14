@@ -94,7 +94,10 @@ Poverty_Blood <- right_join(NYC_Poverty, New_Blood_Lead_Children, by = c("Year",
   filter(geo_type == "Borough") %>%
   mutate(Pos_Test_Rate = (Total_Lead_Poisoned/Total_Test) * 100)
 
-#Created new variables: 1) Total lead poisoned, combining to find how many kids had elevated blood lead levels 2) Total not lead poisoned, showed how many kids did not have elevated levels 3) Positive test rate, calculated the total percentage of kids tested who had elevated levels as a percentage. 
+#Created new variables: 
+#1) Total lead poisoned, combining to find how many kids had elevated blood lead levels
+#2) Total not lead poisoned, showed how many kids did not have elevated levels 
+#3) Positive test rate, calculated the total percentage of kids tested who had elevated levels as a percentage. 
 
 ```
 
