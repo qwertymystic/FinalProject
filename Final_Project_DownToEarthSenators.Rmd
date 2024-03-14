@@ -24,8 +24,16 @@ For this data we are talking about the amount of tested blood lead levels in eac
 ![Five NYC Boroughs](https://www.worldatlas.com/r/w768/upload/c6/23/73/shutterstock-152208935.jpg)
 
 ## *Methods*\
-Our dataset provides information about the number of children in New York City that tested with elevated levels of lead in their blood by location and year. 
-Every year, all children at the ages of 1 and 2 years old, living in New York City are required to get their blood lead levels tested. If they are at risk for elevated levels, they are tested up until the age of 6. The data is provided to the public by the Department of Health and Mental Hygiene, through the data.cityofnewyork.us website. The data is sorted by the year and the location, which is broken down into the area name, area ID, geography type (borough, citywide, or neighborhood), and the borough ID. The variables are broken up into columns displaying the number of children that tested within certain blood lead level ranges, measured in micrograms per deciliter (µg/dL).
+We started by getting rid of variables that were notes, since they were mostly just all NAs. We renamed most variables to be more concise and usable. Then we transformed our variables into numeric and created some new variables:  
+1) Total lead poisoned - combined to find how many kids had elevated blood lead levels
+\
+2) Total not lead poisoned, showed how many kids did not have elevated levels 
+\
+3) Positive test rate, calculated the total percentage of kids tested who had elevated levels as a percentage. 
+\
+We then joined the two datasets by year and borough name. 
+We found a second set of data about poverty rates in NYC, but it was located in a couple PDF files, so we input the data into a google sheets document, saved it as a CSV file, and brought it into our repository.
+
 
 ```{r, echo=FALSE, include=FALSE}
 knitr::opts_chunk$set(message = FALSE)
