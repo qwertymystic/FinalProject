@@ -116,7 +116,7 @@ Poverty_Blood <- right_join(NYC_Poverty, New_Blood_Lead_Children, by = c("Year",
 ## *Graphs* 
 
 ```{r fig.width=6, fig.height=6, fig.align='center', echo=FALSE, warning= FALSE}
-## Line graph comparing total children testing positive for BBL by borough. Needs title?
+## Line graph comparing total children testing positive for BBL by borough.
 New_Blood_Lead_Children %>%
   filter(geo_type == "Borough") %>%
   group_by("geo_area_name") %>%
@@ -127,7 +127,6 @@ New_Blood_Lead_Children %>%
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   scale_y_continuous(name = "Total Cases (thousands)", breaks = seq(0, 17.5, 2.5)) + 
   guides( color = guide_legend(title = "NYC Borough"))
-## Do i need to ungroup here?
 
 # Map of the 5 boroughs we could use: https://www.loumovesyou.com/wp-content/uploads/2022/11/FiveBoroughs-01.jpg
 
@@ -140,10 +139,9 @@ Poverty_Blood %>%
   labs(x = "Year", y = "Poverty Rate", color = "Boroughs", caption = "Poverty Rates by Borough from 2005 to 2016") +
   theme_gray() +
   theme(plot.caption = element_text(hjust = .5), axis.text.x = element_text(angle = 45))
-  
 
 ```
-
+Our first graph depicts changes in total cases of tested children per thousand by each borough from 2005-2016. And our second graph demonstrates changes in poverty levels by each borough from 2005 - 2016.
 
 ## *Findings*
 
