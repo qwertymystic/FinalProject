@@ -252,6 +252,10 @@ As for our relationship of interest, although we saw a light positive correlatio
 
 We might refine our hypothesis by finding another variable that might theoretically fit better to lead poisoning than poverty, or by investigating the directionality of the relationship between poverty and lead poisoning.
 
+```{r, echo= FALSE, include= FALSE}
+t.test(Poverty_Blood$Poverty_Rate, Poverty_Blood$Pos_Test_Rate)
+```
+
 # *Conclusion*\
 
 The slight relationship between the number of children who tested with elevated lead levels in their blood and the district they live in is important to acknowledge in order to give the city a better idea of who to delegate some more funds to. The cause of elevated lead levels, such as lead piping, or lead paint, would ideally be completely removed as soon as possible, however, the areas that have a higher number of cases also have a higher rate of poverty, meaning that the tenants themselves would not have the funds to be able to remove the paint or put new pipes in the buildings.\
