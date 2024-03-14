@@ -242,7 +242,7 @@ Poverty_Blood %>%
 ```
 \
 We created a graph showing the correlation between Poverty Rate on the x-axis and Positive test rate on the y-axis, and added a linear regression line to visualize the trend. We also found the correlation coefficient between poverty rate and positive test rate and found there to be a positive coefficient of .1785725, indicating there does appear to be a slight correlation between poverty rate and positive test rate, however it cannot be classified as significant.
-\
+
 # *Discussion*\
 Our tables show that our hypothesis was not entirely correct, we anticipated that the boroughs with the most rates of poverty would also have the highest rates of elevated Blood Lead Levels in Children. If our hypothesis was correct, the Bronx would have the highest rates of positive tests due to its heightened rate of poverty.\
 
