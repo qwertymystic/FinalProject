@@ -189,7 +189,7 @@ poverty_blood_table_3 %>%
 
 
 ```
-Our tables show that our hypothesis was not entirely correct, we anticipated that the boroughs with the most rates of poverty would also have the highest rates of elevated Blood Lead Levels in Children. If our hypothesis was correct, the Bronx would have the highest rates of positive tests due to its heightened rate of poverty. However, we found that there still may seem to be some correlation between poverty rates and percent of positive tests per borough. Staten Island has consistently had the lowest levels of Elevated Blood Lead levels as well as the lowest rates of poverty. This may prove a positive relationship between between poverty level and positive tests.
+Our tables show that our hypothesis was not entirely correct, we anticipated that the boroughs with the most rates of poverty would also have the highest rates of elevated Blood Lead Levels in Children. If our hypothesis was correct, the Bronx would have the highest rates of positive tests due to its heightened rate of poverty.
 
 
 ## *Data Dictionary* \
