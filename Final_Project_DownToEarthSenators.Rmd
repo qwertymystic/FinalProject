@@ -17,7 +17,7 @@ output:
 ## *Background*\
 For this data we are talking about the amount of tested blood lead levels in each borough in New York City. This is important because it is concerning the total amount of blood lead levels present in children and it is also interesting to look and compare the total amount of levels in each different boroughs. According to the CDC[^1], any Blood Lead Level over micrograms per deciliter (mcg/dL) is considered toxic. Elevated Blood Lead Levels can lead to numerous negative health effects, such as brain damage, slowed developmental growth, and damage to the nervous system. According to NYC Health[^2], lead is found in old paint and that lead paint turns into dust, which is usually what is found in children. What we don’t know about yet is what makes each borough so different? Some of the boroughs are maybe  30 minutes apart from each other and they still present different total amount of blood lead levels in children. There are multiple variables in which factors why some boroughs have larger or smaller amount blood lead levels, but one major factor we determined is socioeconomic status. Children from low-income families may be at higher risk due to living conditions such as, living in older, poorly maintained housing with lead hazards, lack of access to healthcare and proper nutrition, and exposure to other environmental pollutants. We are hoping to see some correlation between the poverty levels in each borough to the amount of blood lead level in children.
 
-[^1]: ” Centers for Disease Control and Prevention, Centers for Disease Control and Prevention, 2 Sept. 2022, www.cdc.gov/nceh/lead/prevention/health-effects.htm. 
+[^1]: "Centers for Disease Control and Prevention," Centers for Disease Control and Prevention, 2 Sept. 2022, www.cdc.gov/nceh/lead/prevention/health-effects.htm. 
 [^2]: “Lead Poisoning.” Lead Poisoning Prevention - NYC Health, www.nyc.gov/site/doh/health/health-topics/lead-poisoning-prevention.page. Accessed 13 Mar. 2024. 
 
 
@@ -32,7 +32,11 @@ We started by getting rid of variables that were notes, since they were mostly j
 3) Positive test rate, calculated the total percentage of kids tested who had elevated levels as a percentage. 
 \
 We then joined the two datasets by year and borough name. 
-We found a second set of data about poverty rates in NYC, but it was located in a couple PDF files, so we input the data into a google sheets document, saved it as a CSV file, and brought it into our repository.
+We found a second set of data about poverty rates in NYC, but it was located in a couple PDF files, so we input the data into a google sheets document, saved it as a CSV file, and brought it into our repository [^3] [^4]. 
+
+[^3]: "The CEO Poverty Measure, 2005 - 2011," NYC Center for Economic Opportunity, April 2013, https://www.nyc.gov/assets/opportunity/pdf/13_poverty_measure_report.pdf
+
+[^4]: "New York City Government Poverty Measure 2005–2016" Mayor’s Office of Operations, The City of New York, April 2018, https://www.nyc.gov/assets/opportunity/pdf/18_poverty_measure_report.pdf
 
 
 ```{r, echo=FALSE, include=FALSE}
