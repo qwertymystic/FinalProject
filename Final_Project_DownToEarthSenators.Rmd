@@ -181,6 +181,16 @@ poverty_blood_table_3 %>%
 ```
 Our tables show that our hypothesis was not entirely correct, we anticipated that the boroughs with the most rates of poverty would also have the highest rates of elevated Blood Lead Levels in Children. If our hypothesis was correct, the Bronx would have the highest rates of positive tests due to its heightened rate of poverty.
 
+```{r}
+
+```
+
+# *Discussion*\
+
+
+# *Conclusion*\
+
+The slight relationship between the number of children who tested with elevated lead levels in their blood and the district they live in is important to acknowledge in order to give the city a better idea of who to delegate some more funds to. The cause of elevated lead levels, such as lead piping, or lead paint, would ideally be completely removed as soon as possible, however, the areas that have a higher number of cases also have a higher rate of poverty, meaning that the tenants themselves would not have the funds to be able to remove the paint or put new pipes in the buildings. A good section of the funding would have to be delivered by the city itself, and being aware of the worst areas would be a good way of knowing where to start. Additionally, the city could also use the data to put in place an initiative to increase free testing for children in areas with higher rates of elevated lead levels, as well as giving free healthcare to those that tested positive. 
 
 ## *Data Dictionary* \
 **'geo_type'**:\
@@ -215,13 +225,3 @@ Our tables show that our hypothesis was not entirely correct, we anticipated tha
 <num> the combined number of children who tested negative for elevated blood lead levels. Total_Test – Total_Lead_Poisoned = Total_Not_Lead_Poisoned.\
 **'Pos_Test_Rate'**:\
 <num> the percentage of children that tested positive out of the total number of children tested.\
-```{r}
-
-```
-
-# *Discussion*\
-
-
-# *Conclusion*\
-
-The slight relationship between the number of children who tested with elevated lead levels in their blood and the district they live in is important to acknowledge in order to give the city a better idea of who to delegate some more funds to. The cause of elevated lead levels, such as lead piping, or lead paint, would ideally be completely removed as soon as possible, however, the areas that have a higher number of cases also have a higher rate of poverty, meaning that the tenants themselves would not have the funds to be able to remove the paint or put new pipes in the buildings. A good section of the funding would have to be delivered by the city itself, and being aware of the worst areas would be a good way of knowing where to start. Additionally, the city could also use the data to put in place an initiative to increase free testing for children in areas with higher rates of elevated lead levels, as well as giving free healthcare to those that tested positive. 
