@@ -124,7 +124,7 @@ Poverty_Blood %>%
 
 ## *Findings*
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, warning= FALSE}
   
 poverty_blood_table_1 <- Poverty_Blood %>%
   select(-c("geo_area_id", "borough_id", "BLL_5", "BLL_10", "BLL_15", "geo_type", "Total_Not_Lead_Poisioned", "Total_Lead_Poisoned", "Total_Test", "BLL_5_ratio", "BLL_10_ratio", "BLL_15_ratio",)) %>%
@@ -179,6 +179,7 @@ Poverty_Blood %>%
 
 
 ```
+\
 Our tables show that our hypothesis was not entirely correct, we anticipated that the boroughs with the most rates of poverty would also have the highest rates of elevated Blood Lead Levels in Children. If our hypothesis was correct, the Bronx would have the highest rates of positive tests due to its heightened rate of poverty.
 
 ```{r}
