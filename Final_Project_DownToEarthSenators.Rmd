@@ -31,8 +31,7 @@ We started by getting rid of variables that were notes, since they were mostly j
 \
 3) Positive test rate, calculated the total percentage of kids tested who had elevated levels as a percentage. 
 \
-We then joined the two datasets by year and borough name. 
-We found a second set of data about poverty rates in NYC, but it was located in a couple PDF files, so we input the data into a google sheets document, saved it as a CSV file, and brought it into our repository [^3] [^4]. 
+We found a second set of data about poverty rates in NYC, but it was located in a couple PDF files, so we input the data into a google sheets document, saved it as a CSV file, and brought it into our repository [^3] [^4].We then joined the two datasets by year and borough name to create a new dataset.
 
 [^3]: "The CEO Poverty Measure, 2005 - 2011," NYC Center for Economic Opportunity, April 2013, https://www.nyc.gov/assets/opportunity/pdf/13_poverty_measure_report.pdf
 
