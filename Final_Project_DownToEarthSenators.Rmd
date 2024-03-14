@@ -173,11 +173,7 @@ poverty_blood_table_3 %>%
   kable_styling() #%>% 
   #cell_spec("Percent Positive Tests", color = itself(`Percent Positive Tests` == 2.778493, "darkred"))
 ```
-
-```{r setup, message=FALSE}
-#Our tables show that out hypothesis was not entirely correct, we anticipated that the boroughs with the most rates of poverty would also have the highest rates of elevated Blood Lead Levels in Chidren. Instead, we found that there does seem to be some correlation between poverty rates and percent of positive tests per borough. Staten Island and Manhattan have consistently had the lowest levels of Evelvated Blood Lead levels as well as the lowest rates of poverty. Vice versa, Brooklyn and the Bronx have had the highest rates of poverty and positive tests, potentially indicating a positive relationship between poverty level and positive tests. 
-
-```
+Our tables show that out hypothesis was not entirely correct, we anticipated that the boroughs with the most rates of poverty would also have the highest rates of elevated Blood Lead Levels in Chidren. If our hypothesis was correct, the Bronx would have the higest rates of positive tests due to its heightened rate of poverty. However, we found that there still may seem to be some correlation between poverty rates and percent of positive tests per borough. Staten Island has consistently had the lowest levels of Evelvated Blood Lead levels as well as the lowest rates of poverty. This may prove a positive relationship between between poverty level and positive tests.
 
 
 ## *Data Dictionary* \
