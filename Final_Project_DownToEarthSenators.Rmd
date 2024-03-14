@@ -197,15 +197,52 @@ Poverty_Blood %>%
   scale_x_continuous(breaks = seq(0, 30, 5))+
   scale_y_continuous(breaks = seq(0, 3.5, 0.5), limits = c(0,3))+
   theme(legend.position = "none")
+#aov_blood  <- Poverty_Blood %>%
+ #aov(geo_area_name ~ Pos_Test_Rate, data = .)
+
+#summary(aov_blood)
+
+#aov_pov <- Poverty_Blood %>%
+  #aov(geo_area_name ~ Poverty_Rate, data = .)
+
+#summary(aov_pov)
+
+#t_test <- Poverty_Blood %>%
+  #group_by(geo_area_name) %>%
+  #summarise(avg_pov = mean(Poverty_Rate), 
+            #sd_pov = sd(Poverty_Rate),
+            #n_pov = length(Poverty_Rate),
+            #avg_test = mean(Pos_Test_Rate),
+            #sd_test = sd(Pos_Test_Rate),
+            #n_test = length(Pos_Test_Rate)) 
+
+#deg_free <- (t_test$n_pov + t_test$n_test - 2)
+
+#weighted_var_men <- var(heights$males_centimeters)*(hstats$n_men - 1)
+#weighted_var_women <- var(heights$females_centimeters)*(hstats$n_women - 1)
+
+#t.test <- t.test(Poverty_Blood$Poverty_Rate, Poverty_Blood$Pos_Test_Rate)
+
 
 
 ```
-\
 
 ```{r}
+correlation <- cor(Poverty_Blood$Poverty_Rate, Poverty_Blood$Pos_Test_Rate)
 
+#correlation coefficient = .1785725
+
+Poverty_Blood %>%
+  ggplot(aes(x = Poverty_Rate, y = Pos_Test_Rate)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  scale_color_manual(values = wes_palette("AsteroidCity1", 5, type = "discrete")) +
+  labs(x = "Poverty Rate", y = "Positive Test Rate", title = "Scatter plot of Poverty Rate vs. Positive Test Rate") +
+  theme_gray()
 ```
-
+\
+We created a graph showing the correlation between Poverty Rate on the x-axis and Positive test rate on the y-axis, and added a linear regression line to visualize the trend. We also found the correlation coefficient between poverty rate and positive test rate and found there to be a positive coefficient of .1785725, indicating there does appear to be a slight correlation between poverty rate and positive test rate, however it cannot be classified as significant.
+\
 # *Discussion*\
 Our tables show that our hypothesis was not entirely correct, we anticipated that the boroughs with the most rates of poverty would also have the highest rates of elevated Blood Lead Levels in Children. If our hypothesis was correct, the Bronx would have the highest rates of positive tests due to its heightened rate of poverty.\
 
