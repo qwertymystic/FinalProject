@@ -147,7 +147,7 @@ poverty_blood_table_1 <- Poverty_Blood %>%
   arrange(desc(`Poverty Rate`))
 
 poverty_blood_table_1 %>%
-  kbl() %>%
+  kbl(caption = "Comparison between Poverty Rate and Positive Test Rate by Borough") %>%
   kable_styling()
 
 poverty_blood_table_2 <- Poverty_Blood %>%
