@@ -227,7 +227,7 @@ Poverty_Blood %>%
 
 ```
 
-```{r}
+```{r, echo=FALSE}
 correlation <- cor(Poverty_Blood$Poverty_Rate, Poverty_Blood$Pos_Test_Rate)
 
 #correlation coefficient = .1785725
