@@ -96,6 +96,7 @@ New_Blood_Lead_Children %>%
   group_by("geo_area_name") %>%
   ggplot() +
   geom_line(aes(x = Year, y = (Total_Lead_Poisoned / 1000), color = geo_area_name), linewidth = 1.5) +
+  scale_color_manual(values = wes_palette("AsteroidCity1", 5, type = "discrete")) +
   scale_x_continuous(name = "Year", breaks = seq(2005, 2016, 1)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   scale_y_continuous(name = "Total Cases (thousands)", breaks = seq(0, 17.5, 2.5)) + 
@@ -104,24 +105,10 @@ New_Blood_Lead_Children %>%
 
 # Map of the 5 boroughs we could use: https://www.loumovesyou.com/wp-content/uploads/2022/11/FiveBoroughs-01.jpg
 
-New_Blood_Lead_Children %>%
-  filter(geo_type == 'Borough') %>%
-  drop_na(borough_id) %>%
-  ggplot() +
-  geom_line(aes(x = Year, y = BLL_5_ratio, color = geo_area_name), linetype = "longdash", linewidth = 1.25) +
-  scale_color_manual(values = wes_palette("Cavalcanti1", 5, type = "discrete")) +
-  scale_y_continuous(breaks = seq(0, 150, 25)) +
-  scale_x_continuous(breaks = seq(2005, 2016, 1)) +
-  labs(x = "Year", y = "BLL >= 5 mcg/dL Per 1,000", color = "Boroughs", caption = "Rate of Kids below six who had greater than or equal to 5 micrograms per deciliter elavated Blood Lead Levels") +
-  theme_gray() +
-  theme(plot.caption = element_text(hjust = .27), axis.text.x = element_text(angle = 45))
-
-#This graph shows changes in BLL rates >=5 in children from 2005-2016, separated by the five NYC boroughs.
-
 Poverty_Blood %>%
   ggplot() +
-  geom_line(aes(x = Year, y = Poverty_Rate, color = geo_area_name), linetype = "longdash", linewidth = 1.25) +
-  scale_color_manual(values = wes_palette("Cavalcanti1", 5, type = "discrete")) +
+  geom_line(aes(x = Year, y = Poverty_Rate, color = geo_area_name), linewidth = 1.25) +
+  scale_color_manual(values = wes_palette("AsteroidCity1", 5, type = "discrete")) +
    scale_y_continuous(breaks = seq(0, 30, 5)) +
   scale_x_continuous(breaks = seq(2005, 2016, 1)) +
   labs(x = "Year", y = "Poverty Rate", color = "Boroughs", caption = "Poverty Rates by Borough from 2005 to 2016") +
