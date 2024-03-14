@@ -126,6 +126,18 @@ Poverty_Blood %>%
   theme_gray() +
   theme(plot.caption = element_text(hjust = .5), axis.text.x = element_text(angle = 45))
 
+Poverty_Blood %>%
+  filter(geo_type == "Borough") %>%
+  ggplot()+
+  geom_smooth(aes(x=Poverty_Rate,y=Total_Lead_Poisoned/1000, color = "black"))+
+  labs(x ="Poverty Rate", y = "Lead Poisoning Total", caption = "Poverty Rates and Lead Poisoning")+
+  theme_bw()+
+  theme(plot.caption = element_text(hjust = .5), axis.text.x = element_text(angle = 30))+
+  scale_x_continuous(breaks = seq(0, 30, 5))+
+  scale_y_continuous(breaks = seq(0, 3.5, 0.5), limits = c(0,3))+
+  theme(legend.position = "none")
+  
+
 ```
 
 
@@ -172,6 +184,8 @@ poverty_blood_table_3 %>%
   kbl()%>%
   kable_styling() #%>% 
   #cell_spec("Percent Positive Tests", color = itself(`Percent Positive Tests` == 2.778493, "darkred"))
+
+
 ```
 Our tables show that out hypothesis was not entirely correct, we anticipated that the boroughs with the most rates of poverty would also have the highest rates of elevated Blood Lead Levels in Chidren. Instead, we found that there does seem to be some correlation between poverty rates and percent of positive tests per borough. Staten Island and Manhattan have consistently had the lowest levels of Evelvated Blood Lead levels as well as the lowest rates of poverty. Vice verca, Brooklyn and the Bronx have had the highest rates of poverty and positive tests, potentially indicating a positive relationship between poverty level and positive tests. 
 
