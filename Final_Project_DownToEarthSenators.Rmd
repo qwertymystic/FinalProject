@@ -58,6 +58,8 @@ NYC_Poverty <- read.csv("NYC Poverty Rates - Sheet1.csv")
 Filtered_Children_Blood_Lead <- Children_Blood_Lead %>%
   select(-ends_with("_NOTES")) 
 
+#Got rid of variables that were notes, were mostly just all NAs
+
 Simple_Children_Blood_Lead <- Filtered_Children_Blood_Lead %>%
   rename(BLL_5 = `Children under 6 years with elevated blood lead levels (BLL) Number BLL >=5 µg/dL`) %>%
   rename(BLL_10 = `Children under 6 years with elevated blood lead levels (BLL) Number BLL>=10 µg/dL`) %>%
@@ -67,6 +69,8 @@ Simple_Children_Blood_Lead <- Filtered_Children_Blood_Lead %>%
   rename(BLL_10_ratio = `Children under 6 years with elevated blood lead levels (BLL) Rate BLL>=10 µg/dL per 1,000 tested`) %>%
   rename(BLL_15_ratio = `Children under 6 years with elevated blood lead levels (BLL) Rate BLL>=15 µg/dL per 1,000 tested`) %>%
   rename(Year = `time_period`)
+
+#Renamed most variables to be more concise and usable
 
 New_Children_Lead_Poision <- Simple_Children_Blood_Lead %>%
   transform(BLL_5 = as.numeric(BLL_5)) %>%
@@ -79,7 +83,9 @@ New_Children_Lead_Poision <- Simple_Children_Blood_Lead %>%
   transform(BLL_5_ratio = as.numeric(BLL_5_ratio)) %>%
   transform(BLL_10_ratio = as.numeric(BLL_10_ratio)) %>%
   transform(BLL_15_ratio = as.numeric(BLL_15_ratio))
-   
+
+#Transformed our variables into numerics   
+
 New_Blood_Lead_Children <- New_Children_Lead_Poision %>%
   mutate(Total_Lead_Poisoned = (BLL_5 + BLL_10 + BLL_15)) %>%
   mutate(Total_Not_Lead_Poisioned = (Total_Test) - (BLL_5 + BLL_10 + BLL_15))
@@ -87,6 +93,8 @@ New_Blood_Lead_Children <- New_Children_Lead_Poision %>%
 Poverty_Blood <- right_join(NYC_Poverty, New_Blood_Lead_Children, by = c("Year", "geo_area_name")) %>%
   filter(geo_type == "Borough") %>%
   mutate(Pos_Test_Rate = (Total_Lead_Poisoned/Total_Test) * 100)
+
+#Created new variables: 1) Total lead poisoned, combining to find how many kids had elevated blood lead levels 2) Total not lead poisoned, showed how many kids did not have elevated levels 3) Positive test rate, calculated the total percentage of kids tested who had elevated levels as a percentage. 
 
 ```
 
