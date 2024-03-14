@@ -120,7 +120,7 @@ New_Blood_Lead_Children %>%
 
 Poverty_Blood %>%
   ggplot() +
-  geom_line(aes(x = Year, y = Poverty_Rate, color = geo_area_name), linetype = "solid", linewidth = 1.25) +
+  geom_line(aes(x = Year, y = Poverty_Rate, color = geo_area_name), linetype = "longdash", linewidth = 1.25) +
   scale_color_manual(values = wes_palette("Cavalcanti1", 5, type = "discrete")) +
    scale_y_continuous(breaks = seq(0, 30, 5)) +
   scale_x_continuous(breaks = seq(2005, 2016, 1)) +
