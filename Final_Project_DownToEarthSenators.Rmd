@@ -92,7 +92,7 @@ Poverty_Blood <- right_join(NYC_Poverty, New_Blood_Lead_Children, by = c("Year",
 
 ## *Graphs* 
 
-```{r fig.width=6, fig.height=6, fig.align='center', echo=FALSE}
+```{r fig.width=6, fig.height=6, fig.align='center', echo=FALSE, warning= FALSE}
 ## Line graph comparing total children testing positive for BBL by borough. Needs title?
 New_Blood_Lead_Children %>%
   filter(geo_type == "Borough") %>%
