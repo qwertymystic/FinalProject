@@ -44,6 +44,9 @@ library(tidyverse)
 library(ggrepel)
 library(janitor)
 library(googlesheets4)
+library(ggmap)
+install.packages("tigris")
+library(tigris)
 #install.packages("devtools")
 #install.packages("dplyr")
 #install.packages("tidyr")
@@ -113,6 +116,19 @@ Poverty_Blood <- right_join(NYC_Poverty, New_Blood_Lead_Children, by = c("Year",
 View(New_Blood_Lead_Children)
 ```
 
+## *Maps*
+```{r}
+lookup_code("New York", "Queens")
+lookup_code("New York", "Bronx")
+lookup_code("New York", "Kings")
+lookup_code("New York", "Richmond")
+lookup_code("New York", "New York")
+
+nyc_tracts <- tracts(state = '36', county = c('061','047','081','005','085'))
+
+summary(nyc_tracts)
+
+```
 ## *Graphs* 
 
 ```{r fig.width=6, fig.height=6, fig.align='center', echo=FALSE, warning= FALSE}
