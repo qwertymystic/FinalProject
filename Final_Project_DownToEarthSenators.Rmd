@@ -24,7 +24,7 @@ For this data we are talking about the amount of tested blood lead levels in eac
 ![Five NYC Boroughs](https://www.worldatlas.com/r/w768/upload/c6/23/73/shutterstock-152208935.jpg)
 
 ## *Methods*\
-We started by getting rid of variables that were notes, since they were mostly just all NAs. We renamed most variables to be more concise and usable. Then we transformed our variables into numeric and created some new variables:  
+We started by getting rid of variables that were notes, since they were mostly just all NAs which are useless to our research. We renamed most variables to be more concise and usable. Then we transformed our variables into numeric and created some new variables:  
 1) Total lead poisoned - combined to find how many kids had elevated blood lead levels
 \
 2) Total not lead poisoned, showed how many kids did not have elevated levels 
